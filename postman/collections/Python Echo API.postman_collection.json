@@ -1,0 +1,560 @@
+{
+  "info": {
+    "name": "Python Echo API",
+    "description": "A Flask-based HTTP echo service that mirrors request data back to the client. Useful for testing HTTP clients and debugging API requests.\n\nBased on the httpbin pattern, this API provides endpoints for:\n- Request inspection (headers, query params, body)\n- HTTP method testing (GET, POST, PUT)\n- Status code simulation\n- Response header manipulation",
+    "_postman_id": "python-echo-api-collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Basic",
+      "description": "Basic endpoints for health check and root access",
+      "item": [
+        {
+          "name": "Root",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/",
+            "description": "Returns a simple HTML response indicating the service is running."
+          },
+          "response": [
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "html",
+              "cookie": [],
+              "body": "<p>Python Echo!</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Request Inspection",
+      "description": "Endpoints for inspecting incoming request data",
+      "item": [
+        {
+          "name": "Get Headers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Custom-Header",
+                "value": "test-value",
+                "description": "Example custom header to see in response"
+              }
+            ],
+            "url": "{{baseUrl}}/headers",
+            "description": "Returns the incoming request's HTTP headers as JSON. Environment headers (X-Forwarded-*, X-Real-Ip, etc.) are hidden by default unless `show_env` query parameter is provided."
+          },
+          "response": [
+            {
+              "name": "Headers Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Custom-Header",
+                    "value": "test-value"
+                  }
+                ],
+                "url": "{{baseUrl}}/headers"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"Host\": \"localhost:5000\",\n  \"User-Agent\": \"PostmanRuntime/7.x\",\n  \"Accept\": \"*/*\",\n  \"X-Custom-Header\": \"test-value\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HTTP Methods",
+      "description": "Endpoints for testing different HTTP methods and inspecting request data",
+      "item": [
+        {
+          "name": "GET Request",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/get?param1=value1&param2=value2",
+              "host": ["{{baseUrl}}"],
+              "path": ["get"],
+              "query": [
+                {
+                  "key": "param1",
+                  "value": "value1",
+                  "description": "Example query parameter"
+                },
+                {
+                  "key": "param2",
+                  "value": "value2",
+                  "description": "Another example query parameter"
+                }
+              ]
+            },
+            "description": "Returns the request's query parameters, URL, headers, and origin IP address."
+          },
+          "response": [
+            {
+              "name": "GET Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/get?param1=value1&param2=value2",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["get"],
+                  "query": [
+                    {
+                      "key": "param1",
+                      "value": "value1"
+                    },
+                    {
+                      "key": "param2",
+                      "value": "value2"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"url\": \"http://localhost:5000/get?param1=value1&param2=value2\",\n  \"args\": {\n    \"param1\": \"value1\",\n    \"param2\": \"value2\"\n  },\n  \"headers\": {\n    \"Host\": \"localhost:5000\",\n    \"User-Agent\": \"PostmanRuntime/7.x\"\n  },\n  \"origin\": \"127.0.0.1\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "POST Request (JSON)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"active\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/post?query=test",
+              "host": ["{{baseUrl}}"],
+              "path": ["post"],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "test",
+                  "description": "Optional query parameter"
+                }
+              ]
+            },
+            "description": "Returns the request's POST parameters including URL, query args, form data, raw data, origin, headers, files, and JSON body."
+          },
+          "response": [
+            {
+              "name": "POST JSON Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"active\": true\n}"
+                },
+                "url": "{{baseUrl}}/post"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"url\": \"http://localhost:5000/post\",\n  \"args\": {},\n  \"form\": {},\n  \"data\": \"{\\\"name\\\": \\\"John Doe\\\", \\\"email\\\": \\\"john@example.com\\\", \\\"active\\\": true}\",\n  \"origin\": \"127.0.0.1\",\n  \"headers\": {\n    \"Host\": \"localhost:5000\",\n    \"Content-Type\": \"application/json\"\n  },\n  \"files\": {},\n  \"json\": {\n    \"name\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"active\": true\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "POST Request (Form Data)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "username",
+                  "value": "testuser",
+                  "description": "Username field"
+                },
+                {
+                  "key": "password",
+                  "value": "secret123",
+                  "description": "Password field"
+                }
+              ]
+            },
+            "url": "{{baseUrl}}/post",
+            "description": "Returns the request's POST parameters with form-urlencoded data."
+          },
+          "response": [
+            {
+              "name": "POST Form Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "username",
+                      "value": "testuser"
+                    },
+                    {
+                      "key": "password",
+                      "value": "secret123"
+                    }
+                  ]
+                },
+                "url": "{{baseUrl}}/post"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"url\": \"http://localhost:5000/post\",\n  \"args\": {},\n  \"form\": {\n    \"username\": \"testuser\",\n    \"password\": \"secret123\"\n  },\n  \"data\": \"\",\n  \"origin\": \"127.0.0.1\",\n  \"headers\": {\n    \"Host\": \"localhost:5000\",\n    \"Content-Type\": \"application/x-www-form-urlencoded\"\n  },\n  \"files\": {},\n  \"json\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "PUT Request",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 123,\n  \"name\": \"Updated Name\",\n  \"status\": \"active\"\n}"
+            },
+            "url": "{{baseUrl}}/put",
+            "description": "Returns the request's PUT parameters including URL, query args, form data, raw data, origin, headers, files, and JSON body."
+          },
+          "response": [
+            {
+              "name": "PUT Response",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 123,\n  \"name\": \"Updated Name\",\n  \"status\": \"active\"\n}"
+                },
+                "url": "{{baseUrl}}/put"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"url\": \"http://localhost:5000/put\",\n  \"args\": {},\n  \"form\": {},\n  \"data\": \"{\\\"id\\\": 123, \\\"name\\\": \\\"Updated Name\\\", \\\"status\\\": \\\"active\\\"}\",\n  \"origin\": \"127.0.0.1\",\n  \"headers\": {\n    \"Host\": \"localhost:5000\",\n    \"Content-Type\": \"application/json\"\n  },\n  \"files\": {},\n  \"json\": {\n    \"id\": 123,\n    \"name\": \"Updated Name\",\n    \"status\": \"active\"\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Status Codes",
+      "description": "Endpoints for testing HTTP status code responses",
+      "item": [
+        {
+          "name": "Get Status Code",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/status/200",
+              "host": ["{{baseUrl}}"],
+              "path": ["status", "200"]
+            },
+            "description": "Returns a response with the specified HTTP status code. Replace `200` with any valid HTTP status code (e.g., 201, 400, 404, 500).\n\nSpecial status codes have custom responses:\n- 301, 302, 303, 305, 307: Redirect to /redirect/1\n- 401: WWW-Authenticate header\n- 402: Payment required message\n- 406: Not acceptable with supported media types\n- 407: Proxy-Authenticate header\n- 418: I'm a teapot (ASCII art)"
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/status/200"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "cookie": [],
+              "body": ""
+            },
+            {
+              "name": "404 Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/status/404"
+              },
+              "status": "NOT FOUND",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "cookie": [],
+              "body": ""
+            },
+            {
+              "name": "418 I'm a Teapot",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/status/418"
+              },
+              "status": "I'M A TEAPOT",
+              "code": 418,
+              "_postman_previewlanguage": "text",
+              "cookie": [],
+              "body": "    -=[ teapot ]=-\n\n       _...._\n     .'  _ _ `.\n    | .\"` ^ `\". _,\n    \\_;`\"---\"`|//\n      |       ;/\n      \\_     _/\n        `\"\"\"`"
+            }
+          ]
+        },
+        {
+          "name": "Random Status Code (Weighted)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/status/200:0.7,500:0.3",
+              "host": ["{{baseUrl}}"],
+              "path": ["status", "200:0.7,500:0.3"]
+            },
+            "description": "Returns a random status code from the provided list with optional weights.\n\nFormat: `code1:weight1,code2:weight2,...`\n\nExample: `200:0.7,500:0.3` returns 200 (70% chance) or 500 (30% chance).\n\nIf no weights are provided (e.g., `200,404,500`), each code has equal probability."
+          },
+          "response": [
+            {
+              "name": "Random Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/status/200:0.7,500:0.3"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "cookie": [],
+              "body": ""
+            }
+          ]
+        },
+        {
+          "name": "POST Status Code",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/status/201",
+              "host": ["{{baseUrl}}"],
+              "path": ["status", "201"]
+            },
+            "description": "Returns a response with the specified HTTP status code using POST method."
+          },
+          "response": [
+            {
+              "name": "201 Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": "{{baseUrl}}/status/201"
+              },
+              "status": "CREATED",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "cookie": [],
+              "body": ""
+            }
+          ]
+        },
+        {
+          "name": "DELETE Status Code",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/status/204",
+              "host": ["{{baseUrl}}"],
+              "path": ["status", "204"]
+            },
+            "description": "Returns a response with the specified HTTP status code using DELETE method."
+          },
+          "response": [
+            {
+              "name": "204 No Content",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{baseUrl}}/status/204"
+              },
+              "status": "NO CONTENT",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "cookie": [],
+              "body": ""
+            }
+          ]
+        },
+        {
+          "name": "PATCH Status Code",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/status/200",
+              "host": ["{{baseUrl}}"],
+              "path": ["status", "200"]
+            },
+            "description": "Returns a response with the specified HTTP status code using PATCH method."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Response Inspection",
+      "description": "Endpoints for manipulating and inspecting response data",
+      "item": [
+        {
+          "name": "Response Headers (GET)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/response-headers?X-Custom-Header=custom-value&Cache-Control=no-cache",
+              "host": ["{{baseUrl}}"],
+              "path": ["response-headers"],
+              "query": [
+                {
+                  "key": "X-Custom-Header",
+                  "value": "custom-value",
+                  "description": "Custom header to include in response"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache",
+                  "description": "Cache control header"
+                }
+              ]
+            },
+            "description": "Returns a response with headers set from the query string parameters. Any query parameter will be added as a response header.\n\nUseful for testing how your client handles specific response headers."
+          },
+          "response": [
+            {
+              "name": "Custom Headers Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/response-headers?X-Custom-Header=custom-value",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["response-headers"],
+                  "query": [
+                    {
+                      "key": "X-Custom-Header",
+                      "value": "custom-value"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"Content-Type\": \"application/json\",\n  \"X-Custom-Header\": \"custom-value\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Response Headers (POST)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/response-headers?X-Request-Id=abc123",
+              "host": ["{{baseUrl}}"],
+              "path": ["response-headers"],
+              "query": [
+                {
+                  "key": "X-Request-Id",
+                  "value": "abc123",
+                  "description": "Request ID header to include in response"
+                }
+              ]
+            },
+            "description": "Returns a response with headers set from the query string parameters using POST method."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "External",
+      "description": "Endpoints that make external API calls",
+      "item": [
+        {
+          "name": "External API Call",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/external",
+            "description": "Makes an external API call to jsonbin.io and returns the response data. Demonstrates server-side API consumption."
+          },
+          "response": [
+            {
+              "name": "External Data Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/external"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "cookie": [],
+              "body": "{\n  \"data\": {\n    \"record\": {},\n    \"metadata\": {}\n  }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
