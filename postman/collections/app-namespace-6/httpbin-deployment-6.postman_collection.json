@@ -1,0 +1,156 @@
+{
+  "info": {
+    "_postman_id": "165991bb-6333-4257-9270-6a495d32e9f9",
+    "name": "app-namespace-6/httpbin-deployment-6",
+    "description": "This collection was auto-generated via the API Catalog Onboarding process.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "DELETE /delete",
+      "id": "5b9ea0c4-eb58-4643-b7ba-ee9d76292aa4",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/delete",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "delete"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /delay/{arg2}",
+      "id": "efc30b1f-7cfe-46bd-b232-983ebf73d311",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/delay/{arg2}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "delay",
+            "{arg2}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /get",
+      "id": "e947c7c5-0002-4cef-b0c9-91cf7f57ee58",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/get",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "get"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /headers",
+      "id": "89839156-b973-4dbb-8ec9-2eda274b65f6",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/headers",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "headers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /status/{arg2}",
+      "id": "3d9890dc-057a-438f-b5e4-cf96dfab640a",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/status/{arg2}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "status",
+            "{arg2}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PATCH /patch",
+      "id": "19b1ba1a-65aa-46fc-9a3e-21307e2cb786",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/patch",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "patch"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST /post",
+      "id": "b0990bb1-6367-4054-a8d0-d3272d5ccb60",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/post",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "post"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT /put",
+      "id": "679a9264-bc4b-435f-aa24-6535ceaa44ff",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/put",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "put"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
