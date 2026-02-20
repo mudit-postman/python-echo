@@ -1,0 +1,156 @@
+{
+  "info": {
+    "_postman_id": "7eadc694-a76a-49a0-b86f-04a9b5b9b316",
+    "name": "app-namespace-11/httpbin-deployment-11",
+    "description": "This collection was auto-generated via the API Catalog Onboarding process.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "DELETE /delete",
+      "id": "7d645c1c-8115-43fa-986b-dc33ceac80e8",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/delete",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "delete"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /delay/{arg2}",
+      "id": "245bf2b0-e75c-4928-8e76-45ac90e186ce",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/delay/{arg2}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "delay",
+            "{arg2}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /get",
+      "id": "9181f39d-02e6-41a7-af4a-66690e5e05f5",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/get",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "get"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /headers",
+      "id": "6e5f4df0-50d1-4d26-85eb-a8884e59228d",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/headers",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "headers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /status/{arg2}",
+      "id": "d4951302-cba1-45ea-b241-2d01493e375c",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/status/{arg2}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "status",
+            "{arg2}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PATCH /patch",
+      "id": "a183810f-1f21-41de-9244-c38f6e2f6749",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/patch",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "patch"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST /post",
+      "id": "f11b208c-f8f3-4866-9378-82a8a48c1b99",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/post",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "post"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT /put",
+      "id": "ade2b4ff-d092-4dec-9643-2b8915dbc6e0",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/put",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "put"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
