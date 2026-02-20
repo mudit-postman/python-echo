@@ -1,0 +1,210 @@
+{
+  "info": {
+    "_postman_id": "10eb6f8c-2d89-4cf4-ac48-4ef3d658c864",
+    "name": "Order - stage (3.0.0)",
+    "description": "View and track your orders and deliveries.\n\nContact Support:\n Name: IBM Corporation",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Retrieve the details of your order.",
+      "id": "217fc5ff-13d5-406d-8d96-7b4834568b75",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/:orderNumber?active=true",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            ":orderNumber"
+          ],
+          "query": [
+            {
+              "description": "active only",
+              "key": "active",
+              "value": "true"
+            }
+          ],
+          "variable": [
+            {
+              "id": "17d8fb21-3708-4800-8993-1d140786b2db",
+              "key": "orderNumber",
+              "value": "string",
+              "description": "Order number to lookup - you should find this in your confirmation e-mail"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "27bc9c15-67a8-4a89-88f0-bf49ff8c81f3",
+          "name": "Order found successfully",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "description": "Added as a part of security scheme: apikey",
+                "key": "X-IBM-Client-Id",
+                "value": "<API Key>"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/:orderNumber?active=true",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":orderNumber"
+              ],
+              "query": [
+                {
+                  "description": "active only",
+                  "key": "active",
+                  "value": "true"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "orderNumber",
+                  "value": "string",
+                  "description": "Order number to lookup - you should find this in your confirmation e-mail"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n  \"shipped_at\": \"1981-02-19T00:54:16.025Z\",\n  \"order_number\": \"ORD00989792\",\n  \"tracking_status\": {},\n  \"tracking_reference\": \"string\",\n  \"created_at\": \"1950-02-06T08:00:51.206Z\",\n  \"status\": \"PENDING\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "/:orderNumber",
+      "id": "12d98662-2594-4a68-b616-48a856268486",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/:orderNumber?active=true",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            ":orderNumber"
+          ],
+          "query": [
+            {
+              "description": "active only",
+              "key": "active",
+              "value": "true"
+            }
+          ],
+          "variable": [
+            {
+              "id": "4409ad45-06a8-4314-9b7f-0c498cfd9a2b",
+              "key": "orderNumber",
+              "value": "string"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "f69efe96-a5bb-4713-86a0-e6cc3ebc2ab0",
+          "name": "success",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "description": "Added as a part of security scheme: apikey",
+                "key": "X-IBM-Client-Id",
+                "value": "<API Key>"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/:orderNumber?active=true",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":orderNumber"
+              ],
+              "query": [
+                {
+                  "description": "active only",
+                  "key": "active",
+                  "value": "true"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "orderNumber",
+                  "value": "string"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "text",
+          "header": [],
+          "cookie": [],
+          "responseTime": null,
+          "body": null
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-IBM-Client-Id",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/order"
+    }
+  ]
+}
