@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "702c613d-a965-4f2a-874c-83387f41a3a6",
+    "_postman_id": "7a80210c-f60d-447e-9014-4953732f672e",
     "name": "app-namespace-15/httpbin-deployment-15",
     "description": "This collection was auto-generated via the API Catalog Onboarding process.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -8,7 +8,7 @@
   "item": [
     {
       "name": "DELETE /delete",
-      "id": "7cf960fa-7e6b-4f84-a2ae-4c7bcbfb091b",
+      "id": "aeca5545-b13f-4298-805c-3095af85c6b8",
       "request": {
         "method": "DELETE",
         "header": [],
@@ -26,7 +26,7 @@
     },
     {
       "name": "GET /delay/{arg2}",
-      "id": "d8a60a62-1d8f-4a4e-8479-4d3c6e82ef70",
+      "id": "10d2add3-6b1c-4fb1-a5b3-d5a49ba71be3",
       "request": {
         "method": "GET",
         "header": [],
@@ -45,7 +45,7 @@
     },
     {
       "name": "GET /get",
-      "id": "54251a10-9fcb-4810-9d54-1179643755a4",
+      "id": "c07fef12-854c-4219-b72d-df29a40624f6",
       "request": {
         "method": "GET",
         "header": [],
@@ -63,7 +63,7 @@
     },
     {
       "name": "GET /headers",
-      "id": "620253aa-7ff8-4e37-83a1-899c380ed579",
+      "id": "40022085-2b72-42c0-9ae0-00705b2db9d3",
       "request": {
         "method": "GET",
         "header": [],
@@ -81,7 +81,7 @@
     },
     {
       "name": "GET /status/{arg2}",
-      "id": "6b763f26-3d9d-4388-b62e-800834043baf",
+      "id": "c53b8668-2b4c-4186-8025-2b25825f3888",
       "request": {
         "method": "GET",
         "header": [],
@@ -100,7 +100,7 @@
     },
     {
       "name": "PATCH /patch",
-      "id": "b47935c8-ef54-4456-9ca4-319d1236ad18",
+      "id": "a7d72974-db41-4907-b9f5-98849cd70bad",
       "request": {
         "method": "PATCH",
         "header": [],
@@ -118,7 +118,7 @@
     },
     {
       "name": "POST /post",
-      "id": "e91c4817-ee1c-4b5c-b2f0-ce0c672d4572",
+      "id": "de3480ed-2592-4c2b-b213-256dc7dfc479",
       "request": {
         "method": "POST",
         "header": [],
@@ -136,7 +136,7 @@
     },
     {
       "name": "PUT /put",
-      "id": "3861c577-d805-428f-b120-2cd6070fec84",
+      "id": "f37f0717-f9ff-4eb2-909a-9a9889d042ae",
       "request": {
         "method": "PUT",
         "header": [],
