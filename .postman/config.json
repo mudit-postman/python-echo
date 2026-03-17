@@ -3,8 +3,16 @@
     "id": "7dec10fa-7f81-44d6-a092-57df436274e6"
   },
   "entities": {
-    "collections": [],
-    "environments": [],
+    "collections": [
+      "../postman/collections/Python Echo API_916323-b113e493-a80c-4a55-8494-85a3ee4403e7.postman_collection.json"
+    ],
+    "environments": [
+      "../postman/environments/DELETEME_916323-5081c504-2316-41a0-b032-3b15e8dcb8ce.postman_environment.json",
+      "../postman/environments/DELETEME_916323-60e1369c-7a04-4ea0-9c3b-c0149fce46c6.postman_environment.json",
+      "../postman/environments/DELETEME_916323-69196f6a-eecf-475d-9690-8e14620fe864.postman_environment.json",
+      "../postman/environments/DELETEME_916323-b2cfd651-19e8-470a-b5bd-7bd7830c5c0e.postman_environment.json",
+      "../postman/environments/DELETEME_916323-d3dabca2-573a-49a9-890a-117b831764d7.postman_environment.json"
+    ],
     "specs": [],
     "flows": [],
     "globals": []
