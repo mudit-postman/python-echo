@@ -1,0 +1,54 @@
+{
+  "info": {
+    "_postman_id": "b113e493-a80c-4a55-8494-85a3ee4403e7",
+    "name": "Python Echo API",
+    "description": "A Flask-based HTTP echo service that mirrors request data back to the client. Useful for testing HTTP clients and debugging API requests.\n\nBased on the httpbin pattern, this API provides endpoints for:\n- Request inspection (headers, query params, body)\n- HTTP method testing (GET, POST, PUT)\n- Status code simulation\n- Response header manipulation",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Basic",
+      "item": [],
+      "id": "74da2693-e50c-47ac-9926-87d349e3b562",
+      "description": "Basic endpoints for health check and root access"
+    },
+    {
+      "name": "Request Inspection",
+      "item": [],
+      "id": "8c7663c9-230b-4402-8f11-e717c38f835f",
+      "description": "Endpoints for inspecting incoming request data"
+    },
+    {
+      "name": "HTTP Methods",
+      "item": [],
+      "id": "82565ee8-cc0c-4f20-8a21-1eb707b9ed8e",
+      "description": "Endpoints for testing different HTTP methods and inspecting request data"
+    },
+    {
+      "name": "Status Codes",
+      "item": [],
+      "id": "c232a4ef-03e1-49fc-ab69-a00f50d95725",
+      "description": "Endpoints for testing HTTP status code responses"
+    },
+    {
+      "name": "Response Inspection",
+      "item": [],
+      "id": "8bebba17-29f8-429c-80c8-42fb2247c0aa",
+      "description": "Endpoints for manipulating and inspecting response data"
+    },
+    {
+      "name": "External",
+      "item": [],
+      "id": "f82985b8-f3d3-491a-9fc7-7111805ec29d",
+      "description": "Endpoints that make external API calls"
+    }
+  ],
+  "variable": [
+    {
+      "id": "6315a6ea-d390-4d5e-b350-d0105007ebc9",
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ]
+}
